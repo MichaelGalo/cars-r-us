@@ -1,0 +1,27 @@
+{
+  "colors": [
+    { "id": 1, "name": "silver", "price": 100 },
+    { "id": 2, "name": "Midnight Blue", "price": 200 },
+    { "id": 3, "name": "Firebrick Red", "price": 300 },
+    { "id": 4, "name": "Spring Green", "price": 400 }
+  ],
+  "interior": [
+    { "id": 1, "name": "Beige Fabric", "price": 100 },
+    { "id": 2, "name": "Charcoal Fabric", "price": 200 },
+    { "id": 3, "name": "White Leather", "price": 300 },
+    { "id": 4, "name": "Black Leather", "price": 400 }
+  ],
+  "technology": [
+    { "id": 1, "name": "Basic Package", "price": 100 },
+    { "id": 2, "name": "Navigation Package", "price": 200 },
+    { "id": 3, "name": "Visibility Package", "price": 300 },
+    { "id": 4, "name": "Ultra Package", "price": 400 }
+  ],
+  "wheels": [
+    { "id": 1, "name": "17-inch Pair Radial", "price": 100 },
+    { "id": 2, "name": "17-inch Pair Radial Black", "price": 200 },
+    { "id": 3, "name": "18-inch Pair Spoke Silver", "price": 300 },
+    { "id": 4, "name": "18-inch Pair Spoke Black", "price": 400 }
+  ],
+  "orders": []
+}
