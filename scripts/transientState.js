@@ -39,10 +39,7 @@ export const placeCarOrder = async () => {
   };
 
   // Send the transient state to your API // make the request
-  const response = await fetch(
-    "http://localhost:8088/customOrders",
-    postOptions
-  );
+  const response = await fetch("http://localhost:8088/orders", postOptions);
 
   // create a custom event to broadcast & refresh the page with the updated html
   const customEvent = new CustomEvent("carOrderPlaced");
