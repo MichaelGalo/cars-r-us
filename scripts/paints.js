@@ -1,11 +1,30 @@
+//create paints module using wheel.js as a template
+import { setColors } from "./transientState.js";
+
 // export function that will return the html for the paint options from the database
-// use fetch from the database.json & iterate through the array of objects using the .map & .join method
+export const Colors = async () => {
+  const response = await fetch("http://localhost:8088/colors");
+  const paints = await response.json();
+
+  let html = `<select class="choices" id="paints-choices">`;
+
+  html += `<option data-type="paint" value="0" class="options">Choose Your Paint</option>`;
+  const paintOptions = paints
+    .map((paint) => {
+      return `<option data-type="paint" value="${paint.id}" class="options">${paint.name}</option>`;
+    })
+    .join("");
+
+  html += paintOptions;
+
+  html += `</select>`;
+
+  return html;
+};
 
 // create change event listener for the transient state changing due to the user selections
-
-// <select id="color">
-// <option value="0">Silver</option>
-// <option value="1">Midnight Blue</option>
-// <option value="2">Firebrick Red</option>
-// <option value="3">Spring Green</option>
-// </select>
+document.addEventListener("change", (event) => {
+  if (event.target.dataset.type === "paint") {
+    setColors(parseInt(event.target.value));
+  }
+});

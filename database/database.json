@@ -1,6 +1,6 @@
 {
   "colors": [
-    { "id": 1, "name": "silver", "price": 100 },
+    { "id": 1, "name": "Silver", "price": 100 },
     { "id": 2, "name": "Midnight Blue", "price": 200 },
     { "id": 3, "name": "Firebrick Red", "price": 300 },
     { "id": 4, "name": "Spring Green", "price": 400 }
