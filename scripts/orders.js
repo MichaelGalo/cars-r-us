@@ -14,6 +14,12 @@ export const Orders = async () => {
         order.technology.price +
         order.wheel.price;
 
+      // To automatically format the number as currency
+      orderPrice.toLocaleString("en-US", {
+        style: "currency",
+        currency: "USD",
+      });
+
       return `
        <article class="customOrders">
             <h2>Custom Car Orders</h2>
@@ -23,7 +29,10 @@ export const Orders = async () => {
                   <div>Interior: ${order.interiorId}</div>
                   <div>Technology Package: ${order.technologyId}</div>
                   <div>Wheels: ${order.wheelId}</div>
-                  <div>Price: $${orderPrice}</div>
+                  <div>Price: ${orderPrice.toLocaleString("en-US", {
+                    style: "currency",
+                    currency: "USD",
+                  })}</div>
               </div>
         </article>
           `;
