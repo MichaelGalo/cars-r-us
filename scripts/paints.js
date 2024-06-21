@@ -22,9 +22,12 @@ export const Colors = async () => {
   return html;
 };
 
-// create change event listener for the transient state changing due to the user selections
-document.addEventListener("change", (event) => {
-  if (event.target.dataset.type === "paint") {
-    setColors(parseInt(event.target.value));
+// create function for when user chooses colors
+const userChosenColors = (changeEvent) => {
+  if (changeEvent.target.id === "paints-choices") {
+    setColors(parseInt(changeEvent.target.value));
   }
-});
+};
+
+// create change event listener for the transient state changing due to the user selections
+document.addEventListener("change", userChosenColors);

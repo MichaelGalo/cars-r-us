@@ -22,9 +22,12 @@ export const Technologies = async () => {
   return html;
 };
 
-// create change event listener for the transient state changing due to the user selections
-document.addEventListener("change", (event) => {
-  if (event.target.dataset.type === "technology") {
-    setTechnologies(parseInt(event.target.value));
+// create function for when user chooses technology
+const userChosenTechnology = (changeEvent) => {
+  if (changeEvent.target.id === "technology-choices") {
+    setTechnologies(parseInt(changeEvent.target.value));
   }
-});
+};
+
+// create change event listener for the transient state changing due to the user selections
+document.addEventListener("change", userChosenTechnology);

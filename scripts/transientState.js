@@ -9,22 +9,22 @@ const transientState = {
 // create functions to modify each property of transient state
 export const setWheels = (changedWheels) => {
   transientState.wheelId = changedWheels;
-  console.log(parseInt(transientState));
+  console.log(transientState);
 };
 
 export const setColors = (changedColors) => {
   transientState.colorId = changedColors;
-  console.log(parseInt(transientState));
+  console.log(transientState);
 };
 
 export const setInteriors = (changedInteriors) => {
   transientState.interiorId = changedInteriors;
-  console.log(parseInt(transientState));
+  console.log(transientState);
 };
 
 export const setTechnologies = (changedTechnologies) => {
   transientState.technologyId = changedTechnologies;
-  console.log(parseInt(transientState));
+  console.log(transientState);
 };
 
 // function that turns transient state into permanent state

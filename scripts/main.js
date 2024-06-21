@@ -1,6 +1,8 @@
 // import statements here
 import { Interiors } from "./interior.js";
+import { Orders } from "./orders.js";
 import { Colors } from "./paints.js";
+import { orderButton } from "./placeButtonComponent.js";
 import { Technologies } from "./technologies.js";
 import { placeCarOrder } from "./transientState.js";
 import { Wheels } from "./wheels.js";
@@ -14,6 +16,8 @@ const render = async () => {
   const colorsHTML = await Colors();
   const interiorsHTML = await Interiors();
   const technologiesHTML = await Technologies();
+  const orderButtonHTML = orderButton();
+  const ordersHTML = await Orders();
 
   const appHTML = `
     <h1>Cars R Us</h1>
@@ -34,8 +38,8 @@ const render = async () => {
         ${wheelsHTML}
       </section>
     </article>
-     insert button here
-    insert order list here
+     ${orderButtonHTML}
+    ${ordersHTML}
   `;
 
   mainContainer.innerHTML = appHTML;
@@ -44,8 +48,7 @@ const render = async () => {
 render();
 
 // button click event listener for a custom event set up in the transientState module
-document.addEventListener("click", (event) => {
-  if (event.target.id === "orderButton") {
-    placeCarOrder();
-  }
+document.addEventListener("carOrderPlaced", (event) => {
+  console.log("State of data has changed. Regenerating HTML...");
+  render();
 });

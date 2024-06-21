@@ -22,9 +22,12 @@ export const Interiors = async () => {
   return html;
 };
 
-// create change event listener for the transient state changing due to the user selections
-document.addEventListener("change", (event) => {
-  if (event.target.dataset.type === "interior") {
-    setInteriors(parseInt(event.target.value));
+// create function for when user chooses interior
+const userChosenInterior = (changeEvent) => {
+  if (changeEvent.target.id === "interiors-choices") {
+    setInteriors(parseInt(changeEvent.target.value));
   }
-});
+};
+
+// create change event listener for the transient state changing due to the user selections
+document.addEventListener("change", userChosenInterior);
