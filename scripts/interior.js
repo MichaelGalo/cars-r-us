@@ -3,7 +3,7 @@ import { setInteriors } from "./transientState.js";
 
 // export function that will return the html for the interior options from the database
 export const Interiors = async () => {
-  const response = await fetch("http://localhost:8088/interior");
+  const response = await fetch("http://localhost:8088/interiors");
   const interiors = await response.json();
 
   let html = `<select class="choices" id="interiors-choices">`;

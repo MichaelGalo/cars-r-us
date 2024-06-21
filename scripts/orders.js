@@ -1,5 +1,7 @@
 export const Orders = async () => {
-  const response = await fetch("http://localhost:8088/orders");
+  const response = await fetch(
+    "http://localhost:8088/orders?_expand=color&_expand=interior&_expand=technology&_expand=wheel"
+  );
   const orders = await response.json();
 
   let ordersHTML = ``;
@@ -7,10 +9,10 @@ export const Orders = async () => {
   ordersHTML += orders
     .map((order) => {
       const orderPrice =
-        order.colorId.price +
-        order.interiorId.price +
-        order.technologyId.price +
-        order.wheelId.price;
+        order.color.price +
+        order.interior.price +
+        order.technology.price +
+        order.wheel.price;
 
       return `
        <article class="customOrders">

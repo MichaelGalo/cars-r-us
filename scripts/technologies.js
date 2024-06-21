@@ -3,7 +3,7 @@ import { setTechnologies } from "./transientState.js";
 
 // export function that will return the html for the technology options from the database
 export const Technologies = async () => {
-  const response = await fetch("http://localhost:8088/technology");
+  const response = await fetch("http://localhost:8088/technologies");
   const technologies = await response.json();
 
   let html = `<select class="choices" id="technology-choices">`;
