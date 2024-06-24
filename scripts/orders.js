@@ -1,6 +1,6 @@
 export const Orders = async () => {
   const response = await fetch(
-    "http://localhost:8088/orders?_expand=color&_expand=interior&_expand=technology&_expand=wheel"
+    "http://localhost:8088/orders?_expand=color&_expand=interior&_expand=technology&_expand=wheel&_expand=model"
   );
   const orders = await response.json();
 
@@ -8,27 +8,30 @@ export const Orders = async () => {
 
   ordersHTML += orders
     .map((order) => {
-      const orderPrice =
+      let orderPrice =
         order.color.price +
         order.interior.price +
         order.technology.price +
         order.wheel.price;
 
-      // To automatically format the number as currency
-      orderPrice.toLocaleString("en-US", {
-        style: "currency",
-        currency: "USD",
-      });
+      if (order.modelId === 2) {
+        orderPrice = orderPrice * 1.5;
+      } else if (order.modelId === 3) {
+        orderPrice = orderPrice * 2;
+      } else {
+        orderPrice = orderPrice;
+      }
 
       return `
        <article class="customOrders">
             <h2>Custom Car Orders</h2>
               <div class="order">
                   <h3>Order #${order.id}</h3>
-                  <div>Color: ${order.colorId}</div>
-                  <div>Interior: ${order.interiorId}</div>
-                  <div>Technology Package: ${order.technologyId}</div>
-                  <div>Wheels: ${order.wheelId}</div>
+                  <div>Color: ${order.color.name}</div>
+                  <div>Interior: ${order.interior.name}</div>
+                  <div>Technology Package: ${order.technology.name}</div>
+                  <div>Wheels: ${order.wheel.name}</div>
+                  <div>Model: ${order.model.name}</div>
                   <div>Price: ${orderPrice.toLocaleString("en-US", {
                     style: "currency",
                     currency: "USD",

@@ -87,34 +87,19 @@
       "price": 400
     }
   ],
-  "orders": [
+  "models": [
     {
-      "colorId": 1,
-      "interiorId": 1,
-      "technologyId": 1,
-      "wheelId": 1,
-      "id": 1
+      "id": 1,
+      "name": "Car"
     },
     {
-      "colorId": 1,
-      "interiorId": 1,
-      "technologyId": 1,
-      "wheelId": 1,
-      "id": 2
+      "id": 2,
+      "name": "SUV"
     },
     {
-      "colorId": 1,
-      "interiorId": 1,
-      "technologyId": 1,
-      "wheelId": 1,
-      "id": 3
-    },
-    {
-      "colorId": 3,
-      "interiorId": 3,
-      "technologyId": 3,
-      "wheelId": 2,
-      "id": 4
+      "id": 3,
+      "name": "Truck"
     }
-  ]
+  ],
+  "orders": []
 }

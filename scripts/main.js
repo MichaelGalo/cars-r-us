@@ -6,6 +6,7 @@ import { orderButton } from "./placeButtonComponent.js";
 import { Technologies } from "./technologies.js";
 import { placeCarOrder } from "./transientState.js";
 import { Wheels } from "./wheels.js";
+import { Models } from "./model.js";
 
 // create variable to grab the container element from the DOM
 const mainContainer = document.querySelector("#container");
@@ -16,7 +17,8 @@ const render = async () => {
   const colorsHTML = await Colors();
   const interiorsHTML = await Interiors();
   const technologiesHTML = await Technologies();
-  const orderButtonHTML = orderButton();
+  const modelsHTML = await Models();
+  const orderButtonHTML = await orderButton();
   const ordersHTML = await Orders();
 
   const appHTML = `
@@ -36,6 +38,9 @@ const render = async () => {
       </section>
       <section class="choices-wheels options">
         ${wheelsHTML}
+      </section>
+      <section class="choices-models options">
+      ${modelsHTML}
       </section>
     </article>
      ${orderButtonHTML}

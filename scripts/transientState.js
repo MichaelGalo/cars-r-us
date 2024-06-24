@@ -4,6 +4,7 @@ const transientState = {
   interiorId: 0,
   technologyId: 0,
   wheelId: 0,
+  modelId: 0,
 };
 
 // create functions to modify each property of transient state
@@ -24,6 +25,11 @@ export const setInteriors = (changedInteriors) => {
 
 export const setTechnologies = (changedTechnologies) => {
   transientState.technologyId = changedTechnologies;
+  console.log(transientState);
+};
+
+export const setModels = (changedModels) => {
+  transientState.modelId = changedModels;
   console.log(transientState);
 };
 
